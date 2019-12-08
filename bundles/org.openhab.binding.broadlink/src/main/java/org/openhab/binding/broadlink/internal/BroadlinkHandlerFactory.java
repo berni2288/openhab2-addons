@@ -60,7 +60,7 @@ public class BroadlinkHandlerFactory extends BaseThingHandlerFactory {
         }
         if (thingTypeUID.equals(BroadlinkBindingConstants.THING_TYPE_RM3)) {
             if (logger.isDebugEnabled()) logger.debug("RM 3 handler requested created");
-            return new BroadlinkRemoteHandler(thing);
+            return new BroadlinkRemoteHandler(thing, bundleContext);
         }
         if (thingTypeUID.equals(BroadlinkBindingConstants.THING_TYPE_A1)) {
             if (logger.isDebugEnabled()) logger.debug("A1 handler requested created");
@@ -90,5 +90,4 @@ public class BroadlinkHandlerFactory extends BaseThingHandlerFactory {
             }
         }
     }
-
 }

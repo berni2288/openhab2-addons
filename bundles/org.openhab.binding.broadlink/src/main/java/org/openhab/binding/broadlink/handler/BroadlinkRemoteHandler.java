@@ -17,7 +17,8 @@ import org.eclipse.smarthome.core.thing.*;
 import org.eclipse.smarthome.core.thing.type.ChannelTypeUID;
 import org.eclipse.smarthome.core.transform.*;
 import org.eclipse.smarthome.core.types.Command;
-import org.eclipse.smarthome.core.types.RefreshType;z
+import org.eclipse.smarthome.core.types.RefreshType;
+import org.osgi.framework.BundleContext;
 import org.openhab.binding.broadlink.internal.BroadlinkProtocol;
 import org.openhab.binding.broadlink.internal.Hex;
 import org.openhab.binding.broadlink.internal.Utils;
@@ -31,8 +32,11 @@ import org.slf4j.LoggerFactory;
  */
 public class BroadlinkRemoteHandler extends BroadlinkBaseThingHandler {
 
-    public BroadlinkRemoteHandler(Thing thing) {
+    protected BundleContext bundleContext;
+
+    public BroadlinkRemoteHandler(Thing thing, BundleContext bundleContext) {
         super(thing, LoggerFactory.getLogger(BroadlinkRemoteHandler.class));
+        this.bundleContext = bundleContext;y
     }
 
     public BroadlinkRemoteHandler(Thing thing, Logger logger) {
